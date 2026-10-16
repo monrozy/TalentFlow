@@ -1,0 +1,92 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TalentFlow recruitment management demo">
+  <title>TalentFlow — Recruitment Workspace</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#" data-page="dashboard">✦ talentflow</a>
+    <p class="eyebrow">WORKSPACE</p>
+    <nav id="navigation">
+      <button class="nav active" data-page="dashboard">▦ Dashboard</button>
+      <button class="nav" data-page="jobs">▤ Jobs <span id="job-count"></span></button>
+      <button class="nav" data-page="candidates">♙ Candidates <span id="candidate-count"></span></button>
+      <button class="nav" data-page="matching">◎ AI Matching</button>
+      <button class="nav" data-page="pipeline">⇢ Hiring Pipeline</button>
+      <button class="nav" data-page="insights">▥ Insights</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="notice">
+        <strong>● Demo workspace</strong>
+        <p>Records are saved in this browser.</p>
+        <button id="reset-data" class="link-button">Reset demo data ↻</button>
+      </div>
+      <small>TalentFlow · Portfolio demo</small>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><span class="muted">Workspace / </span><strong id="page-name">Dashboard</strong></div>
+      <input id="global-search" class="search global-search"
+        placeholder="Search jobs and candidates…" aria-label="Global search">
+    </header>
+    <section id="app" class="content"></section>
+    <footer>TalentFlow demo · Matching is illustrative and does not make hiring decisions.</footer>
+  </main>
+
+  <dialog id="job-dialog">
+    <form id="job-form">
+      <h2>Create a job</h2>
+      <label>Job title<input name="title" required placeholder="Product Designer"></label>
+      <div class="two">
+        <label>Department<input name="department" required placeholder="Product"></label>
+        <label>Location<input name="location" required placeholder="Tashkent / Remote"></label>
+      </div>
+      <label>Required skills <small>Comma-separated</small>
+        <input name="skills" required placeholder="Figma, Research, Prototyping">
+      </label>
+      <div class="two">
+        <label>Employment type
+          <select name="type"><option>Full-time</option><option>Part-time</option><option>Contract</option><option>Internship</option></select>
+        </label>
+        <label>Priority
+          <select name="priority"><option>Normal</option><option>High</option><option>Urgent</option></select>
+        </label>
+      </div>
+      <label>Summary<textarea name="summary" rows="3" placeholder="What will this person work on?"></textarea></label>
+      <div class="actions">
+        <button type="button" class="btn secondary" data-close>Cancel</button>
+        <button class="btn primary">Create job</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="candidate-dialog">
+    <form id="candidate-form">
+      <h2>Add a candidate</h2>
+      <div class="two">
+        <label>Full name<input name="name" required placeholder="Alex Morgan"></label>
+        <label>Email<input name="email" type="email" required placeholder="alex@example.com"></label>
+      </div>
+      <label>Current role<input name="role" required placeholder="Frontend Developer"></label>
+      <label>Skills <small>Comma-separated, manually verified</small>
+        <input name="skills" required placeholder="JavaScript, React, CSS">
+      </label>
+      <label>Experience summary<textarea name="summary" rows="3"></textarea></label>
+      <div class="actions">
+        <button type="button" class="btn secondary" data-close>Cancel</button>
+        <button class="btn primary">Add candidate</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
